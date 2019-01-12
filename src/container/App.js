@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h3>User Authencation System</h3>
+        <h3>User Authentication System</h3>
         {this.props.children}
       </div>
     );

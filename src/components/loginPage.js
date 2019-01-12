@@ -24,12 +24,17 @@ class LoginPage extends Component {
     if (this.props.response.login.hasOwnProperty('response')) {
       isSuccess = this.props.response.login.response.success;
       message = this.props.response.login.response.message;
+      
+      if (isSuccess) {
+        localStorage.removeItem('token');
+        localStorage.setItem('token', this.props.response.login.response.token);
+      }
     }
 
     return (
       <div>
         <h3>Login Page</h3>
-        {!isSuccess ? <div>{message}</div> : null}
+        {!isSuccess ? <div>{message}</div> : browserHistory.push('dashboard')}
         <form onSubmit={this.onHandleLogin}>
           <div>
             <label>Email</label>
