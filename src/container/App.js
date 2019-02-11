@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import {
+  BrowserRouter,
+  Route,
+  Switch
+} from 'react-router-dom';
+
+import PrivateRoute from './privateRoute';
+import LoginPage from '../components/loginPage';
+import RegisterPage from '../components/registerPage';
+import DashboardPage from '../components/dashboardPage';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h3>User Authentication System</h3>
-        {this.props.children}
-      </div>
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route path='/' exact={true} component={LoginPage} />
+            <Route path='/login' component={LoginPage} />
+            <Route path='/register' component={RegisterPage} />
+            <PrivateRoute path='/dashboard' component={DashboardPage} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
-
-App.propTypes = {
-  children: PropTypes.object.isRequired
-};
 
 export default App;
