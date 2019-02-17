@@ -1,3 +1,5 @@
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=How%20to%20set%20up%20user%20authentication%20using%20React%20Redux%20and%20Redux%20Saga&url=https://medium.freecodecamp.org/login-using-react-redux-redux-saga-86b26c8180e)
+
 Note: This is a sample project for my blog on medium which can be found [here](https://medium.com/@zafarsaleem/login-using-react-redux-redux-saga-86b26c8180e)
 
 ## Before getting started
