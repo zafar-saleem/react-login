@@ -9,23 +9,25 @@ class LoginPage extends Component {
   onHandleLogin = (event) => {
     event.preventDefault();
 
-    let email = event.target.email.value;
-    let password = event.target.password.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
 
     const data = {
-      email, password
+      email,
+      password,
     };
 
     this.props.dispatch(loginUserAction(data));
   }
 
   render() {
-    let isSuccess, message;
+    let isSuccess;
+    let message;
 
     if (this.props.response.login.hasOwnProperty('response')) {
       isSuccess = this.props.response.login.response.success;
       message = this.props.response.login.response.message;
-      
+
       if (isSuccess) {
         setCookie('token', this.props.response.login.response.token, 1);
       }
@@ -54,6 +56,6 @@ class LoginPage extends Component {
   }
 }
 
-const mapStateToProps = (response) => ({response});
+const mapStateToProps = response => ({ response });
 
 export default connect(mapStateToProps)(LoginPage);
