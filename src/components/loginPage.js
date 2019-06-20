@@ -19,6 +19,10 @@ class LoginPage extends Component {
     this.props.dispatch(loginUserAction(data));
   }
 
+  componentDidMount() {
+    document.title = 'React Login';
+  }
+
   render() {
     let isSuccess, message;
 

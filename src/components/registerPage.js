@@ -19,6 +19,10 @@ class RegisterPage extends Component {
     this.props.dispatch(registerUserAction(data));
   }
 
+  componentDidMount() {
+    document.title = 'React Login';
+  }
+
   render() {
     let message, isSuccess;
 
