@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter,
+  Routes,
   Route,
-  Switch
 } from 'react-router-dom';
 
 import PrivateRoute from './privateRoute';
@@ -14,14 +14,19 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Switch>
-            <Route path='/' exact={true} component={LoginPage} />
-            <Route path='/login' component={LoginPage} />
-            <Route path='/register' component={RegisterPage} />
-            <PrivateRoute path='/dashboard' component={DashboardPage} />
-          </Switch>
-        </div>
+        <Routes>
+          <Route path='/' exact element={<LoginPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route
+          	path='/dashboard'
+          	element={
+          		<PrivateRoute>
+          			<DashboardPage />
+          		</PrivateRoute>
+          	}
+          />
+        </Routes>
       </BrowserRouter>
     );
   }
