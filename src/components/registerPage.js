@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { registerUserAction } from '../actions/authenticationActions';
@@ -34,7 +34,7 @@ class RegisterPage extends Component {
     return (
       <div>
         <h3>RegisterPage</h3>
-        {!isSuccess ? <div>{message}</div> : <Redirect to='login' />}
+        {!isSuccess ? <div>{message}</div> : <Navigate to='login' />}
         <form onSubmit={this.onHandleRegistration}>
           <div>
             <label htmlFor="name">Name</label>
@@ -52,7 +52,7 @@ class RegisterPage extends Component {
             <button>Register</button>
           </div>
         </form>
-        Already have account? <Link to='login'>Login here</Link>
+        Already have account? <Link to='/login'>Login here</Link>
       </div>
     )
   }
